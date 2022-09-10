@@ -1,0 +1,123 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+
+    <style>
+        *{
+            font-family: 'Press Start 2P', cursive;
+        }
+        body {
+            background: antiquewhite;
+        }
+
+        h1{
+            margin: 0;
+        }
+        button{
+            border: 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover{
+            background-color: rgba(0,0,0,0.2);
+        }
+        button:active{
+            background-color: rgba(0,0,0,0.4);
+        }
+        /* header{
+            color: red;
+            text-align: center;
+            margin-top: auto;
+            font-size: 5em;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }*/
+
+        canvas{
+            right: 50%;
+            outline: black 4px solid;
+        } 
+
+    </style>
+</head>
+
+<!-- <header></header> -->
+<link rel="stylesheet" href="poke.css">
+
+<div class = "title">
+    <h1>Evan's Pokemon Clone</h1>
+</div>
+<div class="main" style="display: inline-block; position:relative;">
+    
+    <div id="overlappingDiv" style="background-color:black; position: absolute; top:0; right:0; left:0; bottom:0; opacity: 0; pointer-events: none; z-index: 10;"></div>
+    
+    <canvas></canvas>
+    <div id="UI" style="display: none;">
+        <!-- enemy healthbar -->
+        <div style="background-color:white; width:250px; position:absolute; top: 50px; left: 50px; border: 4px black solid; padding: 12px;">
+            <h1 style="font-size:16px;">Chunk</h1>
+            <div style="position: relative;">
+                <div style="height: 5px; background-color: rgb(167, 167, 167); margin-top: 10px; "></div>
+                <div id = "enemyHealthBar" style="height: 5px; background-color: rgb(0, 126, 27);  position: absolute; top: 0; left: 0; right: 0;"></div>
+            </div>
+            
+        </div>
+
+        <!-- user healthbar -->
+        <div style="background-color:white; width:250px; position:absolute; top: 380px; right: 30px; border: 4px black solid; padding: 12px;">
+            <h1 style="font-size:16px;">Blitz</h1>
+            <div style="position: relative;">
+                <div style="height: 5px; background-color: rgb(167, 167, 167); margin-top: 10px; "></div>
+                <div id= "playerHealthBar" style="height: 5px; background-color: rgb(0, 126, 27);  position: absolute; top: 0; left: 0; right: 0;"></div>
+            </div>
+            
+        </div>
+
+        <div style="background-color: white; height: 125px; position: absolute; bottom:0px; left:0px; right:0px; border-top: 4px black solid; display: flex;">
+            <div id="dialogBox" style="position: absolute; top: 0; right: 0; bottom:0; left: 0; background-color:white; padding: 12px; display: none; cursor: pointer;">fjkdjfd</div>
+            <div id = "attacksBox" style="width: 66.66%; display: grid; grid-template-columns: repeat(2, 1fr);"></div>
+            <div style="display: flex; align-items:center; justify-content: center; width: 33.33%; border-left: 4px black solid; background-color: rgb(151, 151, 151);">
+                <h1 id="attackType" style="font-size:16px">Choose an Attack!</h1>
+            </div>
+        
+        </div>
+    </div>
+
+
+</div>
+
+<div class="other">
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        
+    </div>
+    <h1 class="sliderText">Volume</h1>
+    
+    <div>
+        <div class="split" ">
+            <p>W - Up</p>
+            <p>A - Left</p>
+            <p>S - Right</p>
+            <p>D - Down</p>
+        </div>
+    
+    </div>
+
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="audio.js"></script>
+<script src="data/battleZones.js"></script>
+<script src="data/collisions.js"></script>
+<script src="data/attacks.js"></script>
+<script src="mons.js"></script>
+<script src="classes.js"></script>
+<script src="index.js"></script>
+<script src="battleScene.js"></script>
+
