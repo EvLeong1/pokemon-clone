@@ -19,7 +19,7 @@ const monsters = {
         },
         animate:true,
         name: 'Blitz',
-        attacks: [attacks.Tackle, attacks.Flare,attacks.Lightning, attacks["Giga Punch"] ]
+        attacks: [attacks.Tackle, attacks.Flare]
     },
     Chunk: {
         position: {
